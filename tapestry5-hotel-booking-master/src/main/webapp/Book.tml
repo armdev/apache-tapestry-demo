@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html t:type="layout" t:pageTitle="Book your room"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+    <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+    <h2>Book hotel room</h2>
+
+    <div class="hotel-details" t:type="beandisplay" t:object="booking.hotel" t:exclude="id" t:include="name,address,city,state,zip,country,price,stars">
+        <p:stars>
+            <t:hotelclass stars="booking?.hotel?.stars" />
+        </p:stars>
+    </div>
+
+    <t:delegate to="step" />
+
+    <t:block t:id="bookBlock">
+        <form class="full-form" t:type="form" t:id="bookingForm" t:validate="booking">
+            <t:errors />
+            <table>
+                <tr>
+                    <th>
+                        <label t:type="label" t:for="checkinDate">Check In Date</label>
+                    </th>
+                    <td>
+                        <input t:type="datefield" t:id="checkinDate" t:value="booking.checkinDate"/>
+                    </td>	
+                </tr>
+                <tr>
+                    <th>
+                        <label t:type="label" t:for="checkoutDate">Check Out Date</label>
+                    </th>
+                    <td>
+                        <input t:type="datefield" t:id="checkoutDate" t:value="booking.checkoutDate"/>
+                    </td>	
+                </tr>
+                <tr>
+                    <th>
+                        <label t:type="label" t:for="roomPreference">Room Preference</label>
+                    </th>
+                    <td>
+                        <select t:type="select" t:id="roomPreference" t:value="booking.beds" t:model="bedType">
+                        </select>
+                    </td>	
+                </tr>
+                <tr>
+                    <th>
+                        <label t:type="label" t:for="smoking">Smoking</label>
+                    </th>
+                    <td class="inline">
+                        <t:radiogroup t:id="smoking" t:value="booking.smoking">
+                            <t:radio t:id="smoke" t:value="literal:true"/>
+                            <t:label for="smoke"/>
+                            <t:radio t:id="nosmoke" t:value="literal:false"/>
+                            <t:label for="nosmoke"/>
+                        </t:radiogroup>
+                    </td>	
+                </tr>
+                <tr>
+                    <th>
+                        <label t:type="label" t:for="creditCardNumber">Credit Card Number</label>
+                    </th>
+                    <td>
+                        <input t:type="textfield" t:id="creditCardNumber" t:value="booking.creditCardNumber"/>
+                    </td>	
+                </tr>
+                <tr>
+                    <th>
+                        <label t:type="label" t:for="creditCardType">Credit Card Type</label>
+                    </th>
+                    <td>
+                        <select t:type="select" t:id="creditCardType" t:value="booking.creditCardType">
+                        </select>
+                    </td>	
+                </tr>
+                <tr>
+                    <th>
+                        <label t:type="label" t:for="creditCardName">Credit Card Name</label>
+                    </th>
+                    <td>
+                        <input t:type="textfield" t:id="creditCardName" t:value="booking.creditCardName"/>
+                    </td>	
+                </tr>
+                <tr>
+                    <th>
+                        <label t:type="label" t:for="creditCardExpiryYear">Expiracy</label>
+                    </th>
+                    <td class="inline">
+                        <select t:type="select" t:id="creditCardExpiryYear" t:value="booking.creditCardExpiryYear" t:model="years"></select>
+                        &nbsp;
+                        <select t:type="select" t:id="creditCardExpiryMonth" t:value="booking.creditCardExpiryMonth" t:model="months"></select>
+                    </td>	
+                </tr>				
+            </table>
+            <div class="form-submit">
+                <input type="submit" class="btn-active" value="Book" /> or <a href="#" t:type="eventlink" t:event="cancelBooking">Cancel</a>
+            </div>
+        </form>
+    </t:block>
+
+    <t:block t:id="confirmBlock">
+        <div class="booking-details" t:type="beandisplay" t:object="booking" t:include="checkinDate,checkoutDate,creditCardNumber,total">
+            <p:creditCardNumber>
+                #### #### #### ${securedCardNumber}
+            </p:creditCardNumber>
+        </div>
+
+        <form class="full-form" t:type="form" t:id="confirmForm">
+            <t:errors />				
+            <div class="form-submit">
+                <input type="submit" class="btn-active" value="Confirm" /> or <a href="#" t:type="eventlink" t:event="cancelConfirm">Cancel</a>
+            </div>
+        </form>
+
+    </t:block>
+
+    <t:workspace />
+
+    <p:sidebar>
+        <p>
+            Tapestry's block provides an efficient way to display different content in function
+            of the context. This technique allows for example to have a wizard's style form in a single
+            page. And then keeping the state object on a single page.
+        </p>
+
+        <p>
+            Actually, most of the Tapestry services are extensible or can be overridden, this let you
+            imagine whatever you want for your company. Implement it and re-use it ! Also, Tapestry comes with
+            an elegant meta-programming API that will avoid to have boilerplate code inside application's
+            page.
+        </p>
+    </p:sidebar>
+
+</html>

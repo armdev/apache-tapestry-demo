@@ -1,0 +1,16 @@
+db
+.springBeans
+test-output/
+.settings/
+.project
+.classpath
+.externalToolBuilders
+temp-testng-customsuite.xml
+target/
+*.tmp_*
+tidyErrors.txt
+*.origin
+*.orig
+bin/
+.idea
+*.iml
