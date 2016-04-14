@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+    <head>
+        <title>Another Page</title>
+    </head>
+    <body>
+        <center>
+            <h1>Another Page</h1>
+
+
+            <p>The user is ${myUser.firstName} ${myUser.lastName}</p>
+
+            <p>Received a new message: ${passedMessage}</p>
+            <p>
+                <t:PageLink t:page="Start">Back to the Start 
+                    page</t:PageLink>
+            </p>
+        </center>
+    </body>
+</html>

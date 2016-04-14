@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- We need a doctype to allow us to use special characters like &nbsp; 
+     We use a "strict" DTD to make IE follow the alignment rules. -->
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+    <head>
+        <link rel="stylesheet" type="text/css" href="${context:css/form.css}"/>
+    </head>
+    <body>
+        <center>
+            <h1>Login form</h1>
+            <div class="eg">
+                <t:form t:id="names">
+                    <t:errors/>
+                    <table>
+                        <tr>
+                            <td>First Name:</td>
+                            <td><t:textfield t:id="firstName"/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                              
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td><t:textfield t:id="lastName"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Login"/></td>
+                        </tr>
+                    </table>
+                </t:form>
+            </div>    
+
+            <t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
+        </center>
+
+    </body>
+</html>

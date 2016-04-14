@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+    <head>
+        <link rel="stylesheet" type="text/css" href="${context:css/form.css}"/>
+    </head>
+    <body>
+        <center>
+            <h1>User Profile</h1>    
+
+            <div class="eg">
+                Welcome ${name}!
+                
+                Our system will help you to spend your money!!! Good luck!
+
+            </div>    
+
+
+            <t:pagelink t:page="Index">Home</t:pagelink><br/><br/>
+             <t:pagelink t:page="FirstForm">Logout</t:pagelink><br/><br/>
+        </center>
+
+    </body>
+</html>

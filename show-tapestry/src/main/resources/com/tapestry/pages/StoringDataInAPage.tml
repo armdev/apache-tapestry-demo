@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+    <head>
+        <link rel="stylesheet" type="text/css" href="${context:css/form.css}"/>
+    </head>
+    <body>
+        <center>
+            <h1>Storing Data in a Page</h1>
+
+            Sometimes there are fields in a page that you want the page to store for use next time you access the page.<br/>
+            To do this, annotate those fields with <em>@Persist</em>.<br/><br/>
+
+            In this example we use @Persist on a field called <em>count</em>. We increment <em>count</em> every time the page is rendered.<br/>
+            If you reload this page or revisit it, you will see that <em>count</em> has been remembered and incremented.
+
+            <div class="eg">
+                The number of times you have visited this page during this session: <strong>${count}</strong>
+            </div>
+
+            The default strategy for @Persist is "session", which means store the field's value in your session. 
+            The page can remove it from the session by setting it to null or using the 
+            <code>discardPersistentFieldChanges()</code> method of ComponentResources, as demonstrated by this link:
+            <a t:type="eventlink" t:event="clear" href="#">Remove count from the Session and go Home</a>. 
+            To see what's currently stored in your session, go to the Display Session Contents example.<br/><br/>
+
+            <t:pagelink page="StoringDataInAPage">REFRESH</t:pagelink><br/><br/>  
+        </center>
+
+    </body>
+</html>
